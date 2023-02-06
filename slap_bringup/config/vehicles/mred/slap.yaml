@@ -43,16 +43,16 @@ trajectory_planning:
   vd_bar: 0.03
 
 range_simulation:
-  node_frequency: 2
+  node_frequency: 0.66
 
 comms_client_slap:
   node_frequency: 10
   broadcast_port: 2809
-  broadcast_address: "127.255.255.255"
+  broadcast_address: "192.168.255.255"
   Veh_ID: 0
 
 comms_server_slap:
   node_frequency: 10
   broadcast_port: 2809
-  broadcast_address: "127.255.255.255"
+  broadcast_address: "192.168.255.255"
   Veh_ID: 0
