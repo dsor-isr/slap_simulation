@@ -1,0 +1,107 @@
+addons/console_server:
+    PORT: 7080
+
+cooperative/cpf_wifi_server:
+    broadcast_port: 2808
+
+cooperative/cpf_wifi_client:
+    broadcast_port: 2808
+
+slap:
+    comms_client_slap:
+        topics:
+            subscribers:
+                gamma_to_neighbor: "/#vehicle#/slap/gamma_to_neighbor"
+                pdf_to_neighbor: "/#vehicle#/slap/internal/target/pdf_to_neighbor"
+                vehicle_state: "/#vehicle#/nav/filter/state"
+            publishers:
+                neighbor_gamma: "/#vehicle#/slap/neighbor/gamma"
+                neighbor_target_pdf: "/#vehicle#/slap/neighbor/target/pdf"
+                neighbor_pos: "/#vehicle#/slap/neighbor/position"
+    
+    comms_server_slap:
+        topics:
+            subscribers:
+                gamma_to_neighbor: "/#vehicle#/slap/gamma_to_neighbor"
+                pdf_to_neighbor: "/#vehicle#/slap/internal/target/pdf_to_neighbor"
+                vehicle_state: "/#vehicle#/nav/filter/state"
+            publishers:
+                neighbor_gamma: "/#vehicle#/slap/neighbor/gamma"
+                neighbor_target_pdf: "/#vehicle#/slap/neighbor/target/pdf"
+                neighbor_pos: "/#vehicle#/slap/neighbor/position"
+
+    cooperative_control:
+        topics:
+            subscribers:
+                internal_gamma: "/#vehicle#/slap/internal/gamma"
+                neighbor_gamma: "/#vehicle#/slap/neighbor/gamma"
+            publishers:
+                vc: "/#vehicle#/slap/internal/vc"
+                to_neighbor_gamma: "/#vehicle#/slap/gamma_to_neighbor"
+                cpf_etc_info: "/#vehicle#/slap/cpf/etc_info"
+            services:
+                start_cooperative_control: "/#vehicle#/slap/start_cooperative_control"
+                stop_cooperative_control: "/#vehicle#/slap/stop_cooperative_control"  
+                cooperative_control_gain: "/#vehicle#/slap/cooperative_control_gain"  
+                set_ETC_parameter: "/#vehicle#/slap/cpf/set_ETC_parameter"
+
+    dekf:
+        topics:
+            subscribers:
+                neighbor_target_pdf: "/#vehicle#/slap/neighbor/target/pdf"
+                target_range:  "/#vehicle#/sensors/usbl_fix"
+                neighbor_pos: "/#vehicle#/slap/neighbor/position"
+                vehicle_state: "/#vehicle#/nav/filter/state"
+            publishers:
+                target_pdf: "/#vehicle#/slap/internal/target/pdf"
+                target_pdf_to_neighbor: "/#vehicle#/slap/internal/target/pdf_to_neighbor"
+                estimated_target_to_console: "/#vehicle#/Virtual/State"
+                dekf_etc_info: "/#vehicle#/slap/dekf/etc_info"
+            services:
+                start_ekf: "/#vehicle#/slap/start_ekf"
+                stop_ekf: "/#vehicle#/slap/stop_ekf"
+                start_dekf: "/#vehicle#/slap/start_dekf"
+                stop_dekf: "/#vehicle#/slap/stop_dekf"
+                set_target_pdf: "/#vehicle#/slap/set_target_pdf"
+                set_matrices_QR: "/#vehicle#/slap/set_matrices_QR"
+                set_ETC_parameter: "/#vehicle#/slap/dekf/set_ETC_parameter"
+
+    range_simulation:
+        topics:
+            subscribers:
+                neighbor_pos: "/#vehicle#/slap/neighbor/position"
+                vehicle_state: "/#vehicle#/nav/filter/state"
+            publishers:
+                target_range:  "/#vehicle#/sensors/usbl_fix"
+
+    tracking_control:
+        topics:
+            subscribers:
+                vehicle_state: "/#vehicle#/nav/filter/state"
+                vc: "/#vehicle#/slap/internal/vc"
+                st_curve: "/#vehicle#/slap/st_curve"
+                flag: "/#vehicle#/Flag"
+            publishers:
+                surge: "/#vehicle#/ref/surge"
+                yaw_rate: "/#vehicle#/ref/yaw_rate"
+                gamma_dot: "/#vehicle#/slap/internal/gamma_dot"
+            services:
+                start_tracking: "/#vehicle#/slap/start_tracking"
+                stop_tracking: "/#vehicle#/slap/stop_tracking"
+                set_tc_gains: "/#vehicle#/slap/set_tc_gains"
+
+    trajectory_planning:
+        topics:
+            subscribers:
+                gamma_dot: "/#vehicle#/slap/internal/gamma_dot"
+                target_pdf: "/#vehicle#/slap/internal/target/pdf"
+            publishers:
+                st_curve: "/#vehicle#/slap/st_curve"
+                st_curve_to_console: "/#vehicle#/Virtual/State"
+                internal_gamma: "/#vehicle#/slap/internal/gamma"
+
+            services:
+                nominal_gamma_dot: "/#vehicle#/slap/nominal_desired_gamma_dot"
+                rotate_target_mode: "/#vehicle#/slap/rotate_target_mode"
+                behind_target_mode: "/#vehicle#/slap/fixed_target_mode"
+                set_gamma: "/#vehicle#/slap/set_gamma"
