@@ -1,6 +1,3 @@
 [submodule "slap"]
 	path = slap
 	url = git@github.com:dsor-isr/slap.git
-[submodule "dsor_simulation"]
-	path = dsor_simulation
-	url = git@github.com:dsor-isr/dsor_simulation.git
