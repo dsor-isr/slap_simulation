@@ -65,6 +65,7 @@ slap:
                 set_target_pdf: "/#vehicle#/slap/set_target_pdf"
                 set_matrices_QR: "/#vehicle#/slap/set_matrices_QR"
                 set_ETC_parameter: "/#vehicle#/slap/dekf/set_ETC_parameter"
+                set_target_depth: "/#vehicle#/slap/dekf/set_target_depth"
 
     range_simulation:
         topics:
