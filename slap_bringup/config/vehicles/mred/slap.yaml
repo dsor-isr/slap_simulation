@@ -28,7 +28,7 @@ dekf:
                       0.0,   10.0,    0.0,    0.0,
                       0.0,   0.0,    0.1,   0.0,
                       0.0,   0.0,    0.0,    0.1 ]
-  target_depth: 0.0
+  target_depth: 1.5
   # threshold function of ETC (for the DEKF) is: g = c0 + c1e^(-c2*t)
   c0: 0
   c1: 0
@@ -48,11 +48,13 @@ range_simulation:
 comms_client_slap:
   node_frequency: 10
   broadcast_port: 2809
-  broadcast_address: "192.168.255.255"
+#broadcast_address: "192.168.255.255"
+  broadcast_address: "127.255.255.255"
   Veh_ID: 0
 
 comms_server_slap:
   node_frequency: 10
   broadcast_port: 2809
-  broadcast_address: "192.168.255.255"
+#broadcast_address: "192.168.255.255"
+  broadcast_address: "127.255.255.255"
   Veh_ID: 0
