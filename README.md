@@ -1,5 +1,5 @@
 # SLAP Simulation
-This repository holds the code stack for simulating surface and underwater marine vehicles of DSOR-ISR (Dynamical Systems for Ocean Robotics - Institute for System and Robotics), making use of the [FAROL code base](https://github.com/dsor-isr/farol/) and the [SLAP algorithm](https://github.com/dsor-isr/slap/).
+This repository contains the ROS code USED to generate the results in the paper entitled **Target localization and pursuit with networked robotic vehicles: theory and experiments**. It holds the code stack for simulating surface and underwater marine vehicles of DSOR-ISR (Dynamical Systems for Ocean Robotics - Institute for System and Robotics), making use of the [FAROL code base](https://github.com/dsor-isr/farol/) and the [SLAP algorithm](https://github.com/dsor-isr/slap/).
 
 ### Requirements
 This code stack was developed with ROS1 in mind. In order to use, you are required to have:
@@ -109,7 +109,7 @@ The value `10` represents the distance from the target and `135` is the formatio
 These values are representative; try different ones for higher or lower communication rates (0/10/100 for DEKF, and 0/0.01/0.1 for CPF, for instance).
 
 ### Reference
-If you find the code useful and would like to cite it, please reference to the following paper:
+If you find the code useful and would like to cite it, please REFERENCE the following paper:
 
 **Target localization and pursuit with networked robotic vehicles: theory and experiments**, 
 
