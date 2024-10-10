@@ -69,7 +69,6 @@ roslaunch slap_bringup start_vehicle.launch name:=mvector
 roslaunch slap_bringup start_vehicle.launch name:=mblack
 roslaunch slap_bringup start_vehicle.launch name:=mred
 ```
-NOTE: DO NOT RUN THESE COMMANDS ALL AT THE SAME TIME, FOLLOW THE INSTRUCTIONS NEXT BEFORE SPAWNING ALL 3 VEHICLES. YOU NEED TO MOVE THE VEHICLE BEFORE SPAWNING ANOTHER ONE SO THAT THEY DO NOT GET STUCK ON EACHOTHER'S FRAMES.
 
 ### Using the PONTE Console
 - Clone PONTE repo to home directory:
@@ -82,7 +81,7 @@ git clone git@github.com:dsor-isr/ponte.git ~/
 - **Starting PF:** On the top selection bar, select `Draw Mission -> Design New Mission` to create a Path Following mission. Select a vehicle and click `Upload mission to the vehicles` under the `Design Tools` menu.
 - **Monitoring:** On the right side of the web console, loads of data is shown about the currently selected vehicle.
 
-By now, you should have spawned all 3 vehicles without them getting stuck on eachother. Test by sending waypoints for each of them.
+By now, you should have spawned all 3 vehicles. Test by sending waypoints for each of them.
 
 ### Starting SLAP Algorithm
 
