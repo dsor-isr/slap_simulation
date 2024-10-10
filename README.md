@@ -1,5 +1,5 @@
 # SLAP Simulation
-This repository holds the code stack for simulating surface and underwater marine vehicles of DSOR-ISR (Dynamical Systems for Ocean Robotics - Institute for System Robotics), making use of the [FAROL code base](https://github.com/dsor-isr/farol/) and the [SLAP algorithm](https://github.com/dsor-isr/slap/).
+This repository holds the code stack for simulating surface and underwater marine vehicles of DSOR-ISR (Dynamical Systems for Ocean Robotics - Institute for System and Robotics), making use of the [FAROL code base](https://github.com/dsor-isr/farol/) and the [SLAP algorithm](https://github.com/dsor-isr/slap/).
 
 ### Requirements
 This code stack was developed with ROS1 in mind. In order to use, you are required to have:
@@ -19,12 +19,11 @@ git clone --recursive git@github.com:dsor-isr/slap_simulation.git ~/catkin_ws_sl
 roscd farol/farol_addons/farol_docker/
 chmod u+x install_requirements.sh
 ./install_requirements.sh
-rm install_requirements.sh
 ```
 
 ### Using Farol Scripts and Alias
-In order to make use of the scripts and alias developed to make the development of code easier, please add the following lines to your ~/.bashrc file.
-NOTE: replace '/<path_to_workspace>' with the folder where you put you catkin_ws inside. If you put in your home folder, then this variable should be left empty!
+In order to make use of the scripts and alias created to make the development of code easier, please add the following lines to your ~/.bashrc file.
+NOTE: replace '/<path_to_workspace>' with the folder where you put your catkin_ws inside. If you put in your home folder, then this variable should be left empty!
 
 ```bash
 # Function to change between different catkin workspaces on the fly - this is not compulsory, but it is a nice addition 🤓
@@ -63,16 +62,17 @@ catkin build
 ```
 
 ### Running the code
-- Launch the mission scenario and all 3 vehicles (one target, mvector, and two trackers, mblack and mred):
+- Launch the mission scenario and all 3 vehicles (one target, mvector, and two trackers, mblack and mred). Run these commands once in different terminal kernels:
 ```bash
 roslaunch slap_bringup start_scenario.launch gui:=false
 roslaunch slap_bringup start_vehicle.launch name:=mvector
 roslaunch slap_bringup start_vehicle.launch name:=mblack
 roslaunch slap_bringup start_vehicle.launch name:=mred
 ```
+NOTE: DO NOT RUN THESE COMMANDS ALL AT THE SAME TIME, FOLLOW THE INSTRUCTIONS NEXT BEFORE SPAWNING ALL 3 VEHICLES. YOU NEED TO MOVE THE VEHICLE BEFORE SPAWNING ANOTHER ONE SO THAT THEY DO NOT GET STUCK ON EACHOTHER'S FRAMES.
 
 ### Using the PONTE Console
-- Clone PONTE repo
+- Clone PONTE repo to home directory:
 ```bash
 git clone git@github.com:dsor-isr/ponte.git ~/
 ```
@@ -81,6 +81,8 @@ git clone git@github.com:dsor-isr/ponte.git ~/
 - **Sending waypoints:** All 3 vehicles should now be visible in the webpage. By selecting one vehicle, it is possible to right-click and send waypoints to easily move the vehicles around to more suitable positions.
 - **Starting PF:** On the top selection bar, select `Draw Mission -> Design New Mission` to create a Path Following mission. Select a vehicle and click `Upload mission to the vehicles` under the `Design Tools` menu.
 - **Monitoring:** On the right side of the web console, loads of data is shown about the currently selected vehicle.
+
+By now, you should have spawned all 3 vehicles without them getting stuck on eachother. Test by sending waypoints for each of them.
 
 ### Starting SLAP Algorithm
 
