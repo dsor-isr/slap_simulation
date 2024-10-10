@@ -107,3 +107,15 @@ The value `10` represents the distance from the target and `135` is the formatio
 - 0.1
 
 These values are representative; try different ones for higher or lower communication rates (0/10/100 for DEKF, and 0/0.01/0.1 for CPF, for instance).
+
+### Reference
+If you find the code useful and would like to cite it, please reference to the following paper:
+
+**Target localization and pursuit with networked robotic vehicles: theory and experiments**, 
+
+Authors: Nguyen Hung, Eduardo Cunha, Francisco Branco, Antonio Pascoal, Institute for Systems and Robotics, IST, Lisbon
+
+The paper was accepted for publication at the Journal of Field Robotics
+
+More information:
+https://nt-hung.github.io/research/Range-based-target-localization/
