@@ -31,7 +31,7 @@ processes:
       delay_before_start: 1.0
       cmd: 'roslaunch farol_gazebo_bringup vehicle_model.launch'
       args:
-            - x:= 0.0
+            - x:= -10.0
             - y:= 0.0
             - z:= 0.0
             - roll:= 0.0
